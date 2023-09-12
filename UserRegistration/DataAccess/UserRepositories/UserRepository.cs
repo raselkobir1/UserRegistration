@@ -14,6 +14,7 @@ namespace UserRegistration.DataAccess.UserRepositories
 
         public async Task<long> AddAsync(User entity) 
         {
+            entity.Password = BCrypt.Net.BCrypt.HashPassword(entity.Password);
 
             try
             {

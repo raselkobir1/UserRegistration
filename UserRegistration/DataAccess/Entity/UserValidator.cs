@@ -18,7 +18,8 @@ namespace UserRegistration.DataAccess.Entity
                 .NotEmpty()
                 .WithMessage("User name is required")
                 .MinimumLength(6)
-                .WithMessage("Minimum length 6 character")
+                .WithMessage("Username minimum length 6 character") 
+                .MaximumLength(20)
                 .Must(BeValidUserName)
                 .WithMessage("Username can only contain letters and numbers.");
 
