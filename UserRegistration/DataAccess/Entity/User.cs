@@ -1,12 +1,16 @@
-﻿namespace UserRegistration.DataAccess.Entity
+﻿using FluentValidation;
+using System.Text.RegularExpressions;
+
+namespace UserRegistration.DataAccess.Entity
 {
     public class User
     {
-        public string FullName { get; set; } 
-        public string UserName { get; set; }  //unique 6 char only number and string
-        public string Password { get; set; }  // hash long 8 char
+        public string FullName { get; set; }
+        public string UserName { get; set; }  
+        public string Password { get; set; }  
         public string Email { get; set; }
         public string Address { get; set; }
-        public string MobileNumber { get; set; }  //only numeric no space
+        public string MobileNumber { get; set; } 
+
     }
 }

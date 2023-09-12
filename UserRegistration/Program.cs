@@ -1,5 +1,8 @@
+using FluentValidation.AspNetCore;
+using FluentValidation;
 using Microsoft.OpenApi.Models;
 using UserRegistration;
+using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,10 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddInfrastructure();
 builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddFluentValidationRulesToSwagger();
 
 var app = builder.Build();
 

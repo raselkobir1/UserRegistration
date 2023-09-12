@@ -32,25 +32,5 @@ namespace UserRegistration.DataAccess.UserRepositories
                 throw;
             }
         }
-
-        public Task<long> DeleteAsync(long id, long userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IReadOnlyList<User>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User> GetByIdAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<long> UpdateAsync(User entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
