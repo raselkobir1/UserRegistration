@@ -13,14 +13,12 @@ namespace UserRegistration.DataAccess.UserRepositories
             this.configuration = configuration;
         }
 
-        public async Task<long> AddAsync(User entity)
+        public async Task<long> AddAsync(User entity) 
         {
 
             try
             {
-                var sql = @"INSERT INTO Users (FullName,Mobile,Email,Password,IsActive,IsLocked,RoleId,CreatedDate,CreatedBy,IsRemoved,LoginProvider,FbProviderKey,GlProviderKey,DepartmentId,DesignationId,EmployeeId) 
-                                    OUTPUT Inserted.Id 
-                                    VALUES (@FullName,@Mobile,@Email,@Password,@IsActive,@IsLocked,@RoleId,@CreatedDate,@CreatedBy,@IsRemoved,@LoginProvider,@FbProviderKey,@GlProviderKey,@DepartmentId,@DesignationId,@EmployeeId)";
+                var sql = @"";
                 using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
                 {
                     connection.Open();

@@ -12,7 +12,7 @@ namespace UserRegistration.DataAccess.UnitOfWorks
         }
 
         private IUserRepository _userRepository;
-        public IUserRepository Users => _userRepository ?? new UserRepository(_configuration);
+        public IUserRepository Users => _userRepository ?? new UserRepository(_configuration);  
 
     }
 }

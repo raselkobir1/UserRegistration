@@ -4,6 +4,6 @@ namespace UserRegistration.DataAccess.UnitOfWorks
 {
     public interface IUnitOfWork
     {
-        IUserRepository Users { get; }
+        IUserRepository Users { get; } 
     } 
 }
