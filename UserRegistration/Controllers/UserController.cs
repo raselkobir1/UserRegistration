@@ -30,9 +30,11 @@ namespace UserRegistration.Controllers
             {
                 return BadRequest(ConvertFluentErrorMessages(validationResult.Errors));
             }
+            var userExits = await _unitOfWork.Users.GetByUserName(user.UserName);  
+            if (userExits != null) 
+                return Ok("User already exists for thsi user name");
 
-            var result = await _unitOfWork.Users.AddAsync(user);  
-            if(result > 1) { }
+            await _unitOfWork.Users.AddAsync(user);  
             return Ok("User registration succesfully done.");    
         }
 
