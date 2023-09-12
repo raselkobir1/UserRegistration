@@ -3,6 +3,7 @@ using FluentValidation;
 using Microsoft.OpenApi.Models;
 using UserRegistration;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
+using UserRegistration.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<GlobalErrorHandlerMiddleware>();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
