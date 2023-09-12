@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using System.Data.SqlClient;
 using UserRegistration.DataAccess.Entity;
-using UserRegistration.DataAccess.UserRepository;
 
 namespace UserRegistration.DataAccess.UserRepositories
 {
@@ -18,7 +17,9 @@ namespace UserRegistration.DataAccess.UserRepositories
 
             try
             {
-                var sql = @"";
+                var sql = @"INSERT INTO Users (FullName,UserName,Password,Email,Address,MobileNumber) 
+                                    OUTPUT Inserted.Id 
+                                    VALUES (@FullName,@UserName,@Password,@Email,@Address,@MobileNumber)";
                 using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
                 {
                     connection.Open();
