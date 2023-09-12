@@ -17,10 +17,13 @@ namespace UserRegistration.Controllers
         [HttpPost("user")]
         public async Task<IActionResult> AddUser(User user)
         {
-            if (user == null) { }
+            if (user == null) { 
+                return BadRequest();    
+            }
 
-            await _unitOfWork.Users.AddAsync(user);   
-            return BadRequest();    
+            var result = await _unitOfWork.Users.AddAsync(user);  
+            if(result > 1) { }
+            return Ok("User registration succesfully done.");    
         }
     }
 }

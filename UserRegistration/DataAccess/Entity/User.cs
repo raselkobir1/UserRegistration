@@ -2,7 +2,6 @@
 {
     public class User
     {
-        public long Id { get; set; }
         public string FullName { get; set; } 
         public string UserName { get; set; }  //unique 6 char only number and string
         public string Password { get; set; }  // hash long 8 char

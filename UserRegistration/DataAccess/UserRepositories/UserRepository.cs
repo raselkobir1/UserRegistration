@@ -17,7 +17,7 @@ namespace UserRegistration.DataAccess.UserRepositories
 
             try
             {
-                var sql = @"INSERT INTO Users (FullName,UserName,Password,Email,Address,MobileNumber) 
+                var sql = @"INSERT INTO dbo.[User] (FullName,UserName,Password,Email,Address,MobileNumber) 
                                     OUTPUT Inserted.Id 
                                     VALUES (@FullName,@UserName,@Password,@Email,@Address,@MobileNumber)";
                 using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
@@ -29,7 +29,7 @@ namespace UserRegistration.DataAccess.UserRepositories
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
 
@@ -53,5 +53,4 @@ namespace UserRegistration.DataAccess.UserRepositories
             throw new NotImplementedException();
         }
     }
-}
 }
