@@ -24,7 +24,6 @@ namespace UserRegistration.Controllers
             if (user == null) { 
                 return BadRequest();    
             }
-
             var validationResult = _addValidator.Validate(user);
             if (!validationResult.IsValid)
             {
@@ -35,7 +34,7 @@ namespace UserRegistration.Controllers
                 return Ok("User already exists for thsi user name");
 
             await _unitOfWork.Users.AddAsync(user);  
-            return Ok("User registration succesfully done.");    
+            return Ok("User created successfully");    
         }
 
         [NonAction]
